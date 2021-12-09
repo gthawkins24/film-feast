@@ -16,3 +16,6 @@ Ingredients (Textbox)
 Allergies/Restrictions (TBD)
 Time to prepare (Dropdown)
 
+Technologies Used:
+We will be using HTML, CSS and JavaScript for this project. Our chosen CSS Framework is Bulma.
+
