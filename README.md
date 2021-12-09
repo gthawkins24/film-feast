@@ -19,3 +19,5 @@ Time to prepare (Dropdown)
 Technologies Used:
 We will be using HTML, CSS and JavaScript for this project. Our chosen CSS Framework is Bulma.
 
+![image](https://user-images.githubusercontent.com/92816864/145312412-d867dcc7-d3a6-48bb-acd2-5f1d70a01338.png)
+![image](https://user-images.githubusercontent.com/92816864/145312454-e1679061-e26e-4276-a021-35ad4da421af.png)
