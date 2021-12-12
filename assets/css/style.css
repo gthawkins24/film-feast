@@ -6,6 +6,8 @@ body {
     margin: 0;
     background: #222;
     background-image: url("https://cdn.pixabay.com/photo/2019/11/07/20/48/cinema-4609877_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .card {
