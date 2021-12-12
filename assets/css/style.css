@@ -1,13 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     background: #222;
     background-image: url("https://cdn.pixabay.com/photo/2019/11/07/20/48/cinema-4609877_960_720.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+header {
+    padding: 20px 30px;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
 .card {
