@@ -1,11 +1,20 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
     background: #222;
     background-image: url("https://cdn.pixabay.com/photo/2019/11/07/20/48/cinema-4609877_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero {
+    background-color: white;
+    text-align: center;
 }
 
 .card {
@@ -15,4 +24,5 @@ body {
     width: 100%;
     max-width: 420px;
     margin: 1em;
+    position: center;
 }
