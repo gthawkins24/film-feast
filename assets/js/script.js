@@ -4,7 +4,7 @@ var decadeInputEl = document.querySelector("#decade");
 var runtimeInputEl = document.querySelector("#runtime");
 var actorFormEl = document.querySelector("#actor-form");
 var actorInputEl = document.querySelector("#actor-name");
-var goButtonEl = document.querySelector("#go-button");
+var goButtonEl = document.querySelector("#go-btn");
 
 
 // for submission
