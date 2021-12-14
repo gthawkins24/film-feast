@@ -14,8 +14,6 @@ const movieTitle = document.querySelector("#movieTitle");
 const moviePhoto = document.querySelector("#moviePhoto");
 let movieSelections = [];
 let foodSelections = [];
-let imageFoodImageURL = 'https://spoonacular.com/recipeImages/632903-312x231.jpg'
-let movieImageURL = "https://image.tmdb.org/t/p/w500/iM0E9xrxNk275g8M9enO4gOirc6.jpg"
 
 // gathers selections, parses movie values into numbers
 const gatherSelections = (ev) => {
@@ -69,8 +67,6 @@ const fetchFood = async (foodURL) => {
   try {
     const foodResponse = await fetch(foodURL);
     const foodData = await foodResponse.json();
-    console.log(foodData);
-    console.log(foodData[1].title);
     return updateFoodModal (foodData);
   } catch (e) {
     console.log("SOMETHING WENT WRONG", e)
@@ -83,8 +79,8 @@ moviePhoto.src = `https://image.tmdb.org/t/p/w500${movieData.results[0].poster_p
 }
 
 const updateFoodModal = function(foodData) {
-  foodTitle.innerText = foodData[1].title;
-  foodPhoto.src = foodData[1].image;
+  foodTitle.innerText = foodData[0].title;
+  foodPhoto.src = foodData[0].image;
 }
 
 // displays modal on click, cancel and close button on modal
