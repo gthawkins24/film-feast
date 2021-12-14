@@ -38,11 +38,38 @@ var formSubmitHandler = function(event) {
 };
 
 var getMovieRecs =function(genre, decade, runtime, actorName) {
+    
+    // nonsense
     console.log(genre);
     console.log(decade);
     console.log(runtime);
     console.log(actorName);
     console.log("function call works");
+
+    var apiUrl = "https://api.themoviedb.org/3/movie/550?api_key=7a611b31f4fd5d2deb3ae48914418abb";
+
+      // make a get request to url
+  fetch(apiUrl)
+  .then(function(response) {
+    // request was successful
+    if (response.ok) {
+      console.log(response);
+      response.json().then(function(data) {
+        console.log(data);
+        displayMovies();
+      });
+    } else {
+      alert("Error: " + response.statusText);
+    }
+  })
+  .catch(function(error) {
+    alert("Unable to connect to MovieDB");
+  });
+};
+
+var displayMovies = function() {
+    // probably a modal goes here?
+    console.log("some bullshit");
 };
 
 goButtonEl.addEventListener("click", formSubmitHandler);
