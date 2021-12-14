@@ -3,6 +3,9 @@ const ingredient1 = document.querySelector("#ingredient1");
 const ingredient2 = document.querySelector("#ingredient2");
 const ingredient3 = document.querySelector("#ingredient3");
 const generate = document.querySelector("#submit");
+const modal = document.querySelector("#modal");
+const close = document.querySelector("#close");
+const cancel = document.querySelector("#cancel");
 let movieSelections = [];
 let foodSelections = [];
 
@@ -40,5 +43,13 @@ console.log(movieSelections);
 console.log(foodSelections);
 };
 
-// listens for click event on generate button, fires gatherSelections function
+// displays modal on click, cancel and close button on modal
+function modalControl() {
+  modal.classList.toggle('is-active');
+}
+
+// listens for click event on generate button, fires appropriate functions
 generate.addEventListener("click", gatherSelections)
+generate.addEventListener("click", modalControl)
+close.addEventListener("click", modalControl);
+cancel.addEventListener("click", modalControl);
