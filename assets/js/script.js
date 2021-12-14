@@ -1,76 +1,44 @@
-// select input data through id
-var genreInputEl = document.querySelector("#genre");
-var decadeInputEl = document.querySelector("#decade");
-var runtimeInputEl = document.querySelector("#runtime");
-var goButtonEl = document.querySelector("#go-btn");
+//declare variables
+const ingredient1 = document.querySelector("#ingredient1");
+const ingredient2 = document.querySelector("#ingredient2");
+const ingredient3 = document.querySelector("#ingredient3");
+const generate = document.querySelector("#submit");
+let movieSelections = [];
+let foodSelections = [];
+
+let movieURL = 'https://api.themoviedb.org/3/discover/movie?api_key=c6d75842800d82b4602daf055d240f68&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&primary_release_year=2002&with_watch_monetization_types=flatrate&vote_average.gte=7&with_genres=35&vote_count.gte=20&with_runtime.lte=20&original_language=en'
+
+let foodURL = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=cac1eb65ed1f478ab7030fe3f22a709b&number=10&ingredients=broccoli,+carrots'
 
 
-// for submission
-var formSubmitHandler = function(event) {
-    // prevent page from reloading
-    event.preventDefault();
+// gathers selections, parses movie values into numbers
+const gatherSelections = (ev) => {
+  ev.preventDefault();
+// creates object for movie selections to enter into url
+  let movie = {
+    genre: parseInt(document.querySelector("#genre").value),
+    runtime: parseInt(document.querySelector("#runtime").value),
+    year: parseInt(document.querySelector("#decade").value)
+  };
+//creates object for ingredient selections, makes lower case to work with API URL
+  let ingredients = {
+    ingredient1: (document.querySelector("#ingredient1").value).toLowerCase(),
+    ingredient2: (document.querySelector("#ingredient2").value).toLowerCase(),
+    ingredient3: (document.querySelector("#ingredient3").value).toLowerCase()
+  };
+  // adds movie and ingredients into empty array to insert into respective API urls
+  movieSelections.push(movie);
+  foodSelections.push(ingredients);
+  console.log(movie.year);
+// generates random number of year between decades
+  if (movie.year < 2020) {
+  movie.year = (Math.floor((Math.random() * 10)) + movie.year);
+  };
 
-    // get values from input elements
-    var genre = genreInputEl;
-    var decade = decadeInputEl;
-    var runtime = runtimeInputEl;
-    var actorName = actorInputEl.value.trim();
-
-    console.log(genre);
-    console.log(decade);
-    console.log(runtime);
-    console.log(actorName);
-
-    // if at least one of the variables are valid pass them all to movie recomendation function
-    if (genre || decade || runtime || actorName) {
-        getMovieRecs(genre, decade, runtime, actorName);
-
-        // clear old content
-        genreInputEl = "";
-        decadeInputEl = "";
-        runtimeInputEl = "";
-        actorInputEl.textContent = "";
-    } else {
-        alert("Please select at least 1 filter")
-    }
+//test to make sure objects are generated properly
+console.log(movieSelections);
+console.log(foodSelections);
 };
 
-var getMovieRecs =function(genre, decade, runtime, actorName) {
-    
-    // nonsense
-    console.log(genre);
-    console.log(decade);
-    console.log(runtime);
-    console.log(actorName);
-    console.log("function call works");
-
-    var apiUrl = "https://api.themoviedb.org/3/movie/550?api_key=7a611b31f4fd5d2deb3ae48914418abb";
-
-      // make a get request to url
-  fetch(apiUrl)
-  .then(function(response) {
-    // request was successful
-    if (response.ok) {
-      console.log(response);
-      response.json().then(function(data) {
-        console.log(data);
-        displayMovies();
-      });
-    } else {
-      alert("Error: " + response.statusText);
-    }
-  })
-  .catch(function(error) {
-    alert("Unable to connect to MovieDB");
-  });
-};
-
-var displayMovies = function() {
-    // probably a modal goes here?
-    console.log("some bullshit");
-};
-
-goButtonEl.addEventListener("click", formSubmitHandler);
-
-
-
+// listens for click event on generate button, fires gatherSelections function
+generate.addEventListener("click", gatherSelections)
