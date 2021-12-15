@@ -16,6 +16,10 @@ body {
     text-align: center;
 }
 
+.column {
+    display: flex;
+}
+
 /* .card {
     background: #eaeaea;
     padding: 2em;
