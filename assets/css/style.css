@@ -20,6 +20,13 @@ body {
     display: flex;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+
 /* .card {
     background: #eaeaea;
     padding: 2em;
